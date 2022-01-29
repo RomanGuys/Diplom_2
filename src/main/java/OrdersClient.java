@@ -16,21 +16,19 @@ public class OrdersClient extends RestAssuredClient {
         String requestBody = requestBodyJson
                 .put("ingredients", ingredients)
                 .toString();
-        Response response = given()
+        return given()
                 .header("Authorization", token)
                 .spec(getBaseSpec())
                 .body(requestBody)
                 .when()
                 .post(ORDER_PATH);
-        return response;
     }
 
     @Step
     public Response getOrders(String token) {
-        Response response = given()
+        return given()
                 .header("Authorization", token)
                 .spec(getBaseSpec())
                 .get(ORDER_PATH);
-        return response;
     }
 }

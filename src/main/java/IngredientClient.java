@@ -9,9 +9,8 @@ public class IngredientClient extends RestAssuredClient {
 
     @Step
     public Response getIngredients() {
-        Response response = given()
+        return given()
                 .spec(getBaseSpec())
                 .get(INGREDIENTS_PATH);
-        return response;
     }
 }

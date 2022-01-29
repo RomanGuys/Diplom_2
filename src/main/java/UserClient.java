@@ -17,12 +17,11 @@ public class UserClient extends RestAssuredClient {
                 .put("password", password)
                 .put("name", username)
                 .toString();
-        Response response = given()
+        return given()
                 .spec(getBaseSpec())
                 .body(requestBody)
                 .when()
                 .post(USER_PATH + "register/");
-        return response;
     }
 
     @Step
@@ -32,12 +31,11 @@ public class UserClient extends RestAssuredClient {
                 .put("email", email)
                 .put("password", password)
                 .toString();
-        Response response = given()
+        return given()
                 .spec(getBaseSpec())
                 .body(requestBody)
                 .when()
                 .post(USER_PATH + "login/");
-        return response;
     }
 
     @Step
@@ -48,12 +46,11 @@ public class UserClient extends RestAssuredClient {
                 .put("password", password)
                 .put("name", username)
                 .toString();
-        Response response = given()
+        return given()
                 .header("Authorization", token)
                 .spec(getBaseSpec())
                 .body(requestBody)
                 .when()
                 .patch(USER_PATH + "user/");
-        return response;
     }
 }

@@ -54,7 +54,6 @@ public class GetOrdersTests {
         String username = RandomStringUtils.randomAlphabetic(10);
         Response response = userClient.create(email, password, username);
         userClient.login(email, password);
-        String accessToken = response.path("accessToken");
-        return accessToken;
+        return response.path("accessToken");
     }
 }
