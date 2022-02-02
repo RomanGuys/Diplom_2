@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -60,6 +61,7 @@ public class CreateOrderTests {
         assertEquals( true, response.path("success"));
     }
 
+   @Step("Логин")
     private String login(){
         String email = RandomStringUtils.randomAlphabetic(5) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphabetic(10);
